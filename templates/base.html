@@ -1,0 +1,25 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<title>
+    {% block title %}Flask app |{% endblock %}
+</title>
+{% endblock head %}
+
+
+{% block body %}
+
+    {% block navbar %}
+
+        {% include 'navbar.html' %}
+
+    {% endblock navbar %}
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+{% endblock body %}

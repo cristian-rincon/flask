@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block title %}
+{{ super() }}
+    404
+{% endblock %}
+
+{% block content %}
+
+<h1>Lo sentimos, se produjo un error </h1>
+<img src="{{ url_for('static', filename='images/404.jpg') }}" alt="Error 404">
+
+{{ error }}
+
+{% endblock content %}
