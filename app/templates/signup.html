@@ -2,10 +2,11 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block title %}
 {{ super() }}
-Login
+Signup
 {% endblock title %}
 
 {% block content %}
+
 <style>
     body {
 
@@ -13,16 +14,18 @@ Login
     }
 </style>
 
+
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
-        <h1>Login</h1>
-        {{ wtf.quick_form(login_form) }}
+        <h1>Create an account</h1>
+        {{ wtf.quick_form(signup_form) }}
         <br>
         <p class="mt-4">
-            ¿Don't have an account yet?<a href="signup"> Signup here.</a>
+            ¿Do you have an account yet?<a href="login"> Login here.</a>
         </p>
     </div>
 </div>
-</div>
+
+
 
 {% endblock content %}

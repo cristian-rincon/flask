@@ -5,37 +5,65 @@
 
 {% block title %}
 {{ super() }}
-Bienvenido
+Welcome
 {% endblock %}
 
 {% block content %}
 
-{% if username %}
-<h1>Bienvenido {{ username | capitalize }}</h1>
-{% endif %}
-
-
-{% if user_ip %}
-<h3>Hello world in Flask. Your IP is {{user_ip}}</h3>
-{% else %}
-<a href="{{ url_for('index') }}">Go to home</a>
-{% endif %}
+<style>
+body {
+    background-image: url('https://picsum.photos/id/194/2000/1325');
+}
+</style>
 
 <div class="container">
-    <!--
-    <form action="{{ url_for('hello', filename='') }}" method="post">
-    {{ login_form.username }}
-    {{ login_form.username.label }} 
-    </form>
--->
-    {{ wtf.quick_form(login_form) }}
 
+
+    <!--
+        {% if user_ip %}
+        <h3>Hello world in Flask. Your IP is {{user_ip}}</h3>
+        {% else %}
+
+        <a href="{{ url_for('index') }}">Go to home</a>
+        {% endif %}
+        <div class="row">
+    -->
+    <div class="col-sm-6">
+
+
+        <div class="jumbotron jumbotron-fluid">
+
+            {% if username %}
+            <h1>¡Hi {{ username | capitalize }}!</h1>
+            {% endif %}
+
+            <h2>Create new task</h2>
+            {{ wtf.quick_form(todo_form) }}
+
+        </div>
+    </div>
+    <div class="col-sm-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h2>My tasks</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="container-fluid justify-content">
+
+                        {% for todo in todos %}
+                        {{ macros.render_todo(todo, delete_form, update_form) }}
+                        {% endfor %}
+                    
+                    </div>
+                </div>
+            </div>
+
+    </div>
 </div>
 
-<ul>
-    {% for todo in todos %}
-    {{ macros.render_todo(todo) }}
-    {% endfor %}
-</ul>
 
+
+
+
+</div>
 {% endblock content %}

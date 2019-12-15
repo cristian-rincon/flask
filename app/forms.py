@@ -5,5 +5,15 @@ from wtforms.validators import DataRequired
 class LoginForm(FlaskForm):
     username = StringField('Nombre de usuario', validators=[DataRequired()])
     password = PasswordField('Password',validators=[DataRequired()])
-    submit = SubmitField('Enviar')
+    submit = SubmitField('Login')
 
+class TodoForm(FlaskForm): 
+    
+    description = StringField('Description', validators=[DataRequired()])
+    submit = SubmitField('Create')
+
+class DeleteTodoForm(FlaskForm):
+    submit = SubmitField('Delete')
+
+class UpdateTodoForm(FlaskForm):
+    submit = SubmitField('Update')
