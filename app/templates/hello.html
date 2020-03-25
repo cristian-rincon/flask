@@ -12,7 +12,7 @@ Welcome
 
 <style>
 body {
-    background-image: url('https://picsum.photos/id/194/2000/1325');
+    background-image: url('https://picsum.photos/id/307/2000/1325');
 }
 </style>
 
@@ -31,7 +31,7 @@ body {
     <div class="col-sm-6">
 
 
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron">
 
             {% if username %}
             <h1>¡Hi {{ username | capitalize }}!</h1>
@@ -43,20 +43,29 @@ body {
         </div>
     </div>
     <div class="col-sm-6">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h2>My tasks</h2>
-                </div>
-                <div class="panel-body">
-                    <div class="container-fluid justify-content">
-
-                        {% for todo in todos %}
-                        {{ macros.render_todo(todo, delete_form, update_form) }}
-                        {% endfor %}
-                    
-                    </div>
-                </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2>My tasks</h2>
             </div>
+            <div class="panel-body">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for todo in todos %}
+                    {{ macros.render_todo(todo, delete_form, update_form) }}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            </div>
+        </div>
 
     </div>
 </div>

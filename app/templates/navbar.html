@@ -1,33 +1,30 @@
+<br>
 
-<nav class="navbar navbar-inverse" role="navigation">
-    <!-- El logotipo y el icono que despliega el menú se agrupan
-         para mostrarlos mejor en los dispositivos móviles -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse"
-              data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Desplegar navegación</span>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="{{ url_for('index', filename='') }}">
-        <img src="{{ url_for('static', filename='images/icono-vr-portafolio-8.png') }}" style="max-width: 20px;" alt="todo-logo">
-    </a>
+      <a class="navbar-brand" href="{{ url_for('index', filename='') }}">To do App</a>
     </div>
-  
-    <!-- Agrupar los enlaces de navegación, los formularios y cualquier
-         otro elemento que se pueda ocultar al minimizar la barra -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
+
         {% if current_user.is_authenticated %}
-        <li><a href="{{ url_for('auth.logout', filename='') }}">Logout</a></li>
-        <li><a href="{{ url_for('index', filename='') }}">Home</a></li>
+        <li class="active"><a href="{{ url_for('index', filename='') }}">Home</a></li>
         {% endif %}
-        <li class="active"><a href="https://conexe.co" target="_blank">Ir a conexe</a></li>
-
       </ul>
-  
+      <ul class="nav navbar-nav navbar-right">
+        {% if current_user.is_authenticated %}
 
-
+        <li><a href="{{ url_for('auth.logout', filename='') }}"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+        {% else %}
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% endif %}
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

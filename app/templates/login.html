@@ -9,12 +9,15 @@ Login
 <style>
     body {
 
-        background-image: url('https://picsum.photos/id/194/1920/1189');
+        background-image: url('https://picsum.photos/id/307/1920/1189');
     }
 </style>
 
 <div class="container">
-    <div class="jumbotron jumbotron-fluid">
+    <div class="row">
+        <div class="col-sm-0 col-md-3"></div>
+    <div class="col-sm-12 col-md-6">
+    <div class="jumbotron">
         <h1>Login</h1>
         {{ wtf.quick_form(login_form) }}
         <br>
@@ -22,6 +25,9 @@ Login
             ¿Don't have an account yet?<a href="signup"> Signup here.</a>
         </p>
     </div>
+
+    </div>
+
 </div>
 </div>
 

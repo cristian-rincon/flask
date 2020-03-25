@@ -3,6 +3,8 @@
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon" />
+
 <title>
     {% block title %}Flask app |{% endblock %}
 </title>
@@ -11,25 +13,30 @@
 
 {% block body %}
 
-{% block navbar %}
+<div class="container">
 
-{% include 'navbar.html' %}
+    {% block navbar %}
 
-{% endblock navbar %}
+    {% include 'navbar.html' %}
 
+    {% endblock navbar %}
 
-
-{% for message in get_flashed_messages() %}
-<div class="container" style="padding: 0%;">
-    <div class="alert alert-info alert-dismissible fade in">
-        <button type="button" data-dismiss='alert' class="close">&times;</button>
-        {{ message }}
-    </div>
 </div>
-{% endfor %}
+
+
 {% block content %}
 
 {% endblock content %}
+
+    {% for message in get_flashed_messages() %}
+    <div class="container">
+        <div class="alert alert-info alert-dismissible fade in">
+            <button type="button" data-dismiss='alert' class="close">&times;</button>
+            {{ message }}
+        </div>
+    </div>
+    {% endfor %}
+
 
 {% block scripts %}
 {{ super() }}
