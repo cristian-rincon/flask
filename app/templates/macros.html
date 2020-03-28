@@ -2,23 +2,24 @@
 
 {% macro render_todo(todo, delete_form, update_form) %}
 
+<style>
+span.badge {
+    color: #fff;
+}
+</style>
 
       <tr>
         <td>{{todo.to_dict().description}}</td>
         <td>
             {% if todo.to_dict().done %}
-            <span class="label label-success">
-                Done
-            </span>
+            <span class="badge green">Done</span>
             {% else %}
-            <span class="label label-info">
-                Not done yet
-            </span>
+            <span class="badge red">Not done yet</span>
             {% endif %}
         </td>
         <td>
 
-            {{ wtf.quick_form(update_form, action=url_for('update', todo_id=todo.id, done=todo.to_dict().done)) }}
+            {{ wtf.quick_form(update_form, action=url_for('update', todo_id=todo.id, done=todo.to_dict().done)) }}    
 
         </td>
         <td>   

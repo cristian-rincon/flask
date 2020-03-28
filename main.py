@@ -45,6 +45,7 @@ def hello():
     delete_form = DeleteTodoForm()
     update_form = UpdateTodoForm()
 
+
     context = {
         'user_ip': user_ip,
         'todos': get_todos(user_id=username),
@@ -55,7 +56,7 @@ def hello():
     }
 
     if todo_form.validate_on_submit():
-        put_todo(user_id=username,description=todo_form.description.data)
+        put_todo(user_id=username, description=todo_form.description.data)
         flash('¡Your task has been created succesfully!')
 
         return redirect(url_for('hello'))
@@ -69,13 +70,13 @@ def delete(todo_id):
     delete_todo(user_id=user_id, todo_id=todo_id)
     flash('¡Your task has been deleted succesfully!')
 
-
     return redirect(url_for('hello'))
+
 
 @app.route('/todos/update/<todo_id>/<int:done>', methods=['POST'])
 def update(todo_id, done):
     user_id = current_user.id
 
-    update_todo(user_id=user_id,todo_id=todo_id, done=done)
+    update_todo(user_id=user_id, todo_id=todo_id, done=done)
 
-    return redirect(url_for('hello'))
+    return redirect(url_for('hello'),)

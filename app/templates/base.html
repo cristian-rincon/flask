@@ -1,9 +1,16 @@
 {% extends 'bootstrap/base.html' %}
-
 {% block head %}
 {{ super() }}
+
+
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 
 <title>
     {% block title %}Flask app |{% endblock %}
@@ -15,12 +22,20 @@
 
 <div class="container">
 
+
+
     {% block navbar %}
 
     {% include 'navbar.html' %}
 
     {% endblock navbar %}
 
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-info alert-dismissible fade in">
+            <button type="button" data-dismiss='alert' class="close">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
 </div>
 
 
@@ -28,18 +43,12 @@
 
 {% endblock content %}
 
-    {% for message in get_flashed_messages() %}
-    <div class="container">
-        <div class="alert alert-info alert-dismissible fade in">
-            <button type="button" data-dismiss='alert' class="close">&times;</button>
-            {{ message }}
-        </div>
-    </div>
-    {% endfor %}
 
 
 {% block scripts %}
 {{ super() }}
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 {% endblock scripts %}
 
 {% endblock body %}
