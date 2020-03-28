@@ -7,25 +7,27 @@ span.badge {
     color: #fff;
 }
 </style>
-
+        
       <tr>
-        <td>{{todo.to_dict().description}}</td>
+        <td>
+            <p class="">
+            {{todo.to_dict().description}}
+            </p>    
+        </td>
         <td>
             {% if todo.to_dict().done %}
             <span class="badge green">Done</span>
             {% else %}
-            <span class="badge red">Not done yet</span>
+            <span class="badge red">Pending</span>
             {% endif %}
         </td>
         <td>
-
-            {{ wtf.quick_form(update_form, action=url_for('update', todo_id=todo.id, done=todo.to_dict().done)) }}    
-
-        </td>
-        <td>   
-
-            {{ wtf.quick_form(delete_form, action=url_for('delete', todo_id=todo.id)) }}
-
+            {% if todo.to_dict().done %}
+            {{ wtf.quick_form(delete_form, action=url_for('delete', todo_id=todo.id), button_map={'submit':' btn-floating waves-effect waves-light red'}) }}
+            {% else %}
+            {{ wtf.quick_form(update_form, action=url_for('update', todo_id=todo.id, done=todo.to_dict().done)) }}
+            {% endif %}
+            
         </td>
       </tr>
 

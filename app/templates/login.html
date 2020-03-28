@@ -7,10 +7,7 @@ Login
 
 {% block content %}
 <style>
-    body {
-        font-family: 'Montserrat', sans-serif !important;
-        background-image: url('https://picsum.photos/id/307/1920/1189');
-    }
+
     input:not([type]),
     input[type=text]:not(.browser-default),
     input[type=password]:not(.browser-default),
@@ -40,7 +37,7 @@ Login
 <div class="container text-center">
     <div class="row">
         <div class="col s12 m6 push-m3">
-            <div class="card-panel">
+            <div class="card-panel z-depth-5">
                 <h1>Login</h1>
                 {{ wtf.quick_form(login_form) }}
                 <br>

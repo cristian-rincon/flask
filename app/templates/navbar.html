@@ -8,24 +8,24 @@
     text-decoration:none;
     }
 </style>
-    {% if current_user.is_authenticated %}
-<nav class="teal lighten-2">
+
+{% if current_user.is_authenticated %}
+<div class="navbar-fixed">
+  <nav class="teal lighten-2">
     <div class="nav-wrapper">
-        <a href="{{ url_for('index', filename='') }}" class="brand-logo valign-wrapper">
-            <img class="brand__logo--img" src="{{ url_for('static', filename='images/to-do-list.png') }}" alt="" srcset=""> Todo
-        </a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right valign-wrapper hide-on-med-and-down">
-            <li><a href="{{ url_for('auth.logout', filename='') }}"><i class="material-icons">input</i></a></li>
-            <li><a href="#"><i class="material-icons">person</i></a></li>
-        </ul>
+      <a href="{{ url_for('index', filename='') }}" class="brand-logo valign-wrapper"><img class="brand__logo--img" src="{{ url_for('static', filename='images/to-do-list.png') }}" alt="" srcset=""></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('auth.logout', filename='') }}"><i class="material-icons">input</i></a></li>
+      </ul>
     </div>
-</nav>
-<ul class="sidenav" id="mobile-demo">
-    <li><a href="{{ url_for('auth.logout', filename='') }}"><i class="material-icons">input</i></a></li>
-    <li><a href="#"><i class="material-icons">person</i></a></li>
+  </nav>
+</div>
+  <ul class="sidenav text-center" id="mobile-demo">
+      <li class="collection-header"><h4>Todo app</h4></li>
+    <li><a href="{{ url_for('auth.logout', filename='') }}">Logout<i class="material-icons">input</i></a></li>
+  </ul>
+{% endif %}
 
-</ul>
-    {% endif %}
 
-<br/>
+          

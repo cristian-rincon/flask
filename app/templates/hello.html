@@ -10,30 +10,10 @@ Welcome
 
 {% block content %}
 
-<style>
-    body {
-        background-image: url('https://picsum.photos/id/307/2000/1325');
-        font-family: 'Montserrat', sans-serif !important;
-    }
-
-</style>
-
-<div class="container">
-
-
-    <!--
-        {% if user_ip %}
-        <h3>Hello world in Flask. Your IP is {{user_ip}}</h3>
-        {% else %}
-
-        <a href="{{ url_for('index') }}">Go to home</a>
-        {% endif %}
-        <div class="row">
-    -->
-    <div class="row"> 
+<div class="row"> 
 
         <div class="col s12 m4">
-            <div class="card-panel">
+            <div class="card-panel z-depth-5">
 
                 {% if username %}
                 <h4>¡Hi {{ username | capitalize }}!</h4>
@@ -45,9 +25,9 @@ Welcome
             </div>
         </div>
         <div class="col s12 m8">
-                <div class="card-panel">
+                <div class="card-panel z-depth-5">
                     <h4>My tasks</h4>
-                    <table class="table responsive-table highlight centered">
+                    <table class="highlight">
                         <thead>
                         <tr>
                             <th>Task</th>
@@ -64,12 +44,6 @@ Welcome
                 </div>
 
         </div>
-    </div>
-</div>
-
-
-
-
 
 </div>
 {% endblock content %}
